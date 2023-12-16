@@ -16,7 +16,7 @@ namespace Anonimos_vs_Structs
     {
         public long Id { get; init; } = id;
         public string Titulo { get; init; } = titulo;
-        public DateTime dataLancamento { get; init; } = dataLancamento;
+        public DateTime DataLancamento { get; init; } = dataLancamento;
         public string Diretor { get; init; } = diretor;
         public string Genero { get; init; } = genero;
         public float Valor { get; set; } = valor;
@@ -129,11 +129,11 @@ namespace Anonimos_vs_Structs
         public static void FilmesOrdPorLancamento(Filme[] filmes)
         {
             // Mais um exemplo de classe anônima
-            var filmesOrdPorDataLancamento = filmes.OrderByDescending(f => f.dataLancamento).Select(f => new { f.Titulo, f.dataLancamento });
+            var filmesOrdPorDataLancamento = filmes.OrderByDescending(f => f.DataLancamento).Select(f => new { f.Titulo, f.DataLancamento });
             
             Console.WriteLine("<===== Filmes ordenados por data de lançamento =====>");
             foreach (var filme in filmesOrdPorDataLancamento)
-                Console.WriteLine($"{filme.Titulo}, {filme.dataLancamento.ToString("dd/MM/yyyy")}");
+                Console.WriteLine($"{filme.Titulo}, {filme.DataLancamento.ToString("dd/MM/yyyy")}");
         }
 
         public static void ExibeFilmesOrdPorID(Filme[] filmes)
