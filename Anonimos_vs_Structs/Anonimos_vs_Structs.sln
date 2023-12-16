@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anonimos_vs_Structs", "Anonimos_vs_Structs\Anonimos_vs_Structs.csproj", "{6779D90A-83E2-4752-B0ED-5A3C7B5EA870}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6779D90A-83E2-4752-B0ED-5A3C7B5EA870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6779D90A-83E2-4752-B0ED-5A3C7B5EA870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6779D90A-83E2-4752-B0ED-5A3C7B5EA870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6779D90A-83E2-4752-B0ED-5A3C7B5EA870}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E18545FE-D3AE-45CE-8FD4-020FF3AADCA6}
+	EndGlobalSection
+EndGlobal
