@@ -1,6 +1,6 @@
 # Anonimos_vs_Structs_LINQ
-// <===== Observações importantes sobre as intenções deste projeto =====> //
 
+// <===== Observações importantes sobre as intenções deste projeto =====> //
 Este projeto tem por objetivo demonstrar de forma modesta a implementação de Classes Anônimas e Structs, além de suas vantagens e desvantagens.
 Diversas estruturas de dados serão utilizadas como exemplo no decorrer do código, no entanto, no que diz respeito à alocação dessas estruturas
 de dados na memória, indifere se serão preenchidas por Classes Anônimas ou por Structs; pois serão todas armazenadas na Heap da memória.
