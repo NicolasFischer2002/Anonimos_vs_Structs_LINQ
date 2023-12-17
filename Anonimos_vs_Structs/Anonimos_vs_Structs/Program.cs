@@ -3,6 +3,17 @@
 using Anonimos_vs_Structs;
 using System.Linq.Expressions;
 
+
+// <===== Observações importantes sobre as intenções deste projeto =====> //
+// Este projeto tem por objetivo demonstrar de forma modesta a implementação de Classes Anônimas e Structs, além de suas vantagens e desvantagens.
+// Diversas estruturas de dados serão utilizadas como exemplo no decorrer do código, no entanto, no que diz respeito à alocação dessas estruturas
+// de dados na memória, indifere se serão preenchidas por Classes Anônimas ou por Structs; pois serão todas armazenadas na Heap da memória.
+// Via de regra, estruturas de dados são armazenadas na Heap por serem tipos de referência.
+// Um exemplo de estrutura de dados que foge à está regra e que vale ser mencionada seria o Span<T>, mas que não é utilizado no escopo deste projeto.
+// Por tanto, as explicações contidas no código são demasiado geréricas e devem ser entendidas desta forma, não se aplicando às estruturas de dados utilizadas,
+// mas sim à "Classe" e "Struct" de forma geral e suas interações com a semântica do código e alocação na memória fora das estrutudas de dados.
+
+
 try
 {
     Filme[] filmesCadastrados = Filme.FilmesCadastrados();
@@ -10,8 +21,8 @@ try
     {
         Console.WriteLine("<===== Relatórios =====>");
         Console.WriteLine("\n - Digite 1 para vizualizar todos os filmes cadastrados");
-        Console.WriteLine(" - Digite 2 para vizualizar o filme mais caro");
-        Console.WriteLine(" - Digite 3 para vizualizar o filme mais barato");
+        Console.WriteLine(" - Digite 2 para vizualizar os filmes mais caros");
+        Console.WriteLine(" - Digite 3 para vizualizar os filmes mais baratos");
         Console.WriteLine(" - Digite 4 para vizualizar a média de preço dos filmes");
         Console.WriteLine(" - Digite 5 para vizualizar os filmes ordenados por preço");
         Console.WriteLine(" - Digite 6 para vizualizar os filmes ordenados por data de lançamento");

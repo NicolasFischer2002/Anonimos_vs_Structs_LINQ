@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Collections.ObjectModel;
-using System.Data.SqlTypes;
-using System.Diagnostics.Contracts;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
+
 
 namespace Anonimos_vs_Structs
 {
@@ -80,31 +72,40 @@ namespace Anonimos_vs_Structs
             foreach (var filme in filmesMaisCaros)
                 Console.WriteLine($"{filme.Titulo} - {filme.Valor.ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
 
-            // Como filmesMaisCaros é uma lista de objetos anônimos, não é possível alterar o tipo da variável filme no foreach
-            // para um tipo conhecido, pois ele também é um tipo anônimo.
+            // Como "filmesMaisCaros" é uma lista de objetos anônimos; por consequência, não é possível alterar o tipo da variável "filme" no foreach
+            // para um tipo conhecido, pois ele é um tipo anônimo, ou seja, não mapeado dentro da aplicação por uma Classe ou Struct.
             // Tipos anônimos são úteis para quando se precisa de um tipo de objeto ainda não mapeado e que não vai possuir vida longa
-            // dentro do programa. Utilizar classes anônimas agiliza o desenvolvimento e gera menos código, no entando o código gerado pode ser menos legível,
-            // aliado à um consumo maior de memória e de um desempenho inferior, já que por ser uma classe, o objeto será alocado no Heap da memória.
+            // dentro do programa. Utilizar Classes Anônimas agiliza o desenvolvimento e gera menos código, no entanto o código gerado pode ser menos legível,
+            // aliado à um consumo maior de memória e de um desempenho inferior, já que por ser uma Classe, o objeto será alocado na Heap da memória.
         }
 
         public static void ExibeFilmesMaisBaratos(Filme[] filmes)
         {
+            // Extra:
+            // Caso fosse necessário acessar índices aleatórios, IReadOnlyList seria adequado; mas como a estrutura está sendo utilizada
+            // apenas para uma iteração sequêncial, o IEnumerable atende melhor no que diz respeito à semântica, visto que ele só permite
+            // a iteração sequêncial e também não permite a modificação da estrutura.
+            //IReadOnlyList<FilmesMaisBaratos> filmesMaisBaratos = filmes
+            //    .OrderBy(f => f.Valor)
+            //    .Where(f => f.Valor == filmes.Min(x => x.Valor))
+            //    .Select(f => new FilmesMaisBaratos { Titulo = f.Titulo, Valor = f.Valor })
+            //    .ToList();
+
             // Abordagem utilizando Structs
-            IReadOnlyList<FilmesMaisBaratos> filmesMaisBaratos = filmes
-                .OrderBy(f => f.Valor)
-                .Where(f => f.Valor == filmes.Min(x => x.Valor))
-                .Select(f => new FilmesMaisBaratos { Titulo = f.Titulo, Valor = f.Valor })
-                .ToList();
+            IEnumerable<FilmesMaisBaratos> filmesMaisBaratos = filmes
+                  .OrderBy(f => f.Valor)
+                  .Where(f => f.Valor == filmes.Min(x => x.Valor))
+                  .Select(f => new FilmesMaisBaratos { Titulo = f.Titulo, Valor = f.Valor });
 
             Console.WriteLine("<===== Filmes mais baratos =====>");
             foreach (FilmesMaisBaratos filme in filmesMaisBaratos)
                 Console.WriteLine($"{filme.Titulo} - {filme.Valor.ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
 
-            // Diferente das classe anônimas, o código aqui é mais legível, pois no foreach é possível determinar o tipo da variável filme,
-            // que é uma Struct definida. Características como legibilidade, reaproveitamento de código e eficiência acompanham as Structs,
+            // Diferente das Classes Anônimas, o código aqui é mais legível, pois no foreach por exemplo, é possível determinar o tipo da variável "filme",
+            // que é uma Struct definida. Características como legibilidade, reaproveitamento de código e eficiência acompanham as Structs:
             // visto que é possível identificar os tipos e melhorar a semântica do código, pode-se utilizar as Structs à vontade uma vez que definidas,
-            // e as structs compactas são armazenadas na Stack ao invés de irem para o Heap, facilitando a localização dos valores contidos na variável.
-            // Em contra partida, utilizar Structs é mais trabalhoso e gera mais código.
+            // e as Structs compactas são armazenadas na Stack ao invés de irem para a Heap da memória, facilitando a localização dos valores contidos na Struct
+            // pelo compilador. Em contra partida, utilizar Structs é mais trabalhoso e gera mais código.
         }
 
         public static void ExibeValorMedioDosFilmes(Filme[] filmes)
