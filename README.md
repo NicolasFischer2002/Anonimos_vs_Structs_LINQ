@@ -8,6 +8,8 @@ Um exemplo de estrutura de dados que foge à está regra e que vale ser menciona
 Por tanto, as explicações contidas no código são demasiado geréricas e devem ser entendidas desta forma, não se aplicando às estruturas de dados utilizadas,
 mas sim à "Classe" e "Struct" de forma geral e suas interações com a semântica do código e alocação na memória fora das estrutudas de dados.
 
+Um pequeno estudo demonstrando na prática - e com um pouco de teoria - as vantagens e desvantagens de se utilizar classes anônimas e structs para mapear retornos LINQ.
+
 => Documentação: 
 Tipos de dados em C#: https://medium.com/@jonesroberto/tipos-de-dados-em-c-22531bf454a0
 Gerenciamento de memória no C#: stack, heap, value-types e reference-types: https://www.treinaweb.com.br/blog/gerenciamento-de-memoria-no-c-stack-heap-value-types-e-reference-types
