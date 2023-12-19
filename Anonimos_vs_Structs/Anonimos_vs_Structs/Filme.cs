@@ -72,11 +72,14 @@ namespace Anonimos_vs_Structs
             foreach (var filme in filmesMaisCaros)
                 Console.WriteLine($"{filme.Titulo} - {filme.Valor.ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
 
-            // Como "filmesMaisCaros" é uma lista de objetos anônimos; por consequência, não é possível alterar o tipo da variável "filme" no foreach
+            // "filmesMaisCaros" é uma lista de objetos anônimos; por consequência, não é possível alterar o tipo da variável "filme" no foreach
             // para um tipo conhecido, pois ele é um tipo anônimo, ou seja, não mapeado dentro da aplicação por uma Classe ou Struct.
-            // Tipos anônimos são úteis para quando se precisa de um tipo de objeto ainda não mapeado e que não vai possuir vida longa
-            // dentro do programa. Utilizar Classes Anônimas agiliza o desenvolvimento e gera menos código, no entanto o código gerado pode ser menos legível,
-            // aliado à um consumo maior de memória e de um desempenho inferior, já que por ser uma Classe, o objeto será alocado na Heap da memória.
+            // Tipos anônimos são úteis para quando se precisa de um tipo de objeto ainda não mapeado e que não vai possuir uma vida longa
+            // dentro do programa. Utilizar Classes Anônimas agiliza no desenvolvimento e gera menos código, no entanto o código gerado pode ser menos legível,
+            // aliado à um consumo maior de memória e de um desempenho inferior, já que por ser uma Classe, o objeto será alocado na Heap da memória;
+            // por conta disso, o objeto leverá mais tempo para ser desalocado, sobrevivendo mais do que o tempo de execução do seu escopo onde foi criado,
+            // dependendo exclusivamente Garbage Collector para ser limpo da memória, além de ter um desempenho pior, visto que para localizar
+            // algo armazenado na Heap, é mais lento do que para localizar algo armazenado na Stack.
         }
 
         public static void ExibeFilmesMaisBaratos(Filme[] filmes)
@@ -102,10 +105,16 @@ namespace Anonimos_vs_Structs
                 Console.WriteLine($"{filme.Titulo} - {filme.Valor.ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
 
             // Diferente das Classes Anônimas, o código aqui é mais legível, pois no foreach por exemplo, é possível determinar o tipo da variável "filme",
-            // que é uma Struct definida. Características como legibilidade, reaproveitamento de código e eficiência acompanham as Structs:
-            // visto que é possível identificar os tipos e melhorar a semântica do código, pode-se utilizar as Structs à vontade uma vez que definidas,
-            // e as Structs compactas são armazenadas na Stack ao invés de irem para a Heap da memória, facilitando a localização dos valores contidos na Struct
-            // pelo compilador. Em contra partida, utilizar Structs é mais trabalhoso e gera mais código.
+            // que é uma Struct definida. Características como legibilidade, reaproveitamento de código e eficiência acompanham as Structs;
+            // Graças ao uso de Structs é possível: identificar os tipos e melhorar a semântica do código, utilizar as Structs à vontade uma vez que definidas,
+            // além de desfrutar de um desempenho superior quando comparado às classes, visto que e as Structs - compactas - são armazenadas na Stack,
+            // por serem tipo-valor, e graças à isso possuem um tempo de vida mais curto geralmente se limitando ao tempo de execução do seu escopo
+            // - já que como são alocadas na Stack precisam ser desalocadas rapidamente assim que deixarem de ser utilizadas, pois o espaço da
+            // memória Stack é muito limitado, muito menor quando comparado com a memória Heap; por conta disso, o acesso aos valores contidos na Stack é
+            // mais rápido, pois a localização na Stack dos valores contidos na Struct durante a execução é muito mais veloz do que se o mesmo
+            // se encontrasse na Heap, em parte, por conta do tamanho fixo e compacto da memória Stack serem ordens de grandeza
+            // menor que o tamanho dinâmico da Heap.
+            // Em contra partida, utilizar Structs é mais trabalhoso e gera mais código.
         }
 
         public static void ExibeValorMedioDosFilmes(Filme[] filmes)
