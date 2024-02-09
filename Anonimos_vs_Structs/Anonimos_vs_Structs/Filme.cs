@@ -13,6 +13,7 @@ namespace Anonimos_vs_Structs
         public string Genero { get; init; } = genero;
         public float Valor { get; set; } = valor;
 
+        // Dois exemplos de Structs que serão utilizadas para mapear retornos de LINQ
         private struct FilmesMaisBaratos
         {
             public string Titulo;
@@ -25,6 +26,7 @@ namespace Anonimos_vs_Structs
             public string Diretor;
         }
 
+        // Inicializando a estrutura que será manipulada para exibição dos relatórios posteriormente
         public static Filme[] FilmesCadastrados()
         {
             Filme[] filmes =

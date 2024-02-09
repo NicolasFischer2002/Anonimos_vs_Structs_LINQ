@@ -19,6 +19,9 @@ try
     Filme[] filmesCadastrados = Filme.FilmesCadastrados();
     do
     {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Green;
+
         Console.WriteLine("<===== Relatórios =====>");
         Console.WriteLine("\n - Digite 1 para vizualizar todos os filmes cadastrados");
         Console.WriteLine(" - Digite 2 para vizualizar os filmes mais caros");
@@ -76,17 +79,27 @@ try
                     break;
 
                 case "0":
+                    Console.Clear();
+                    Console.WriteLine("Obrigado por participar! :)");
                     Environment.Exit(0);
                     break;
 
                 default:
                     Console.Clear();
                     Console.WriteLine("\nOpção inválida! Por favor, escolha um número válido!");
+                    Console.Clear();
                     break;
             }
+
             Console.WriteLine("\nPrecione enter para obter outro relatório...");
             Console.ReadLine();
+        }
+        else
+        {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nOpção inválida! Precione enter para obter outro relatório...");
+            Console.ReadLine();
         }
 
     } while (true);
@@ -94,5 +107,6 @@ try
 }
 catch (Exception e)
 {
+    Console.ForegroundColor = ConsoleColor.Red;
     throw new Exception("Erro ao trabalhar com Classe Anônima e Struct! " + e.Message);
 }

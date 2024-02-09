@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Anonimos_vs_Structs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aae727cc29d7b962a778996caa524a661cd5a953")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73e9c86fab5ba184c240b594a90f2c3f7fe529aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Anonimos_vs_Structs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Anonimos_vs_Structs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
